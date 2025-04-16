@@ -34,12 +34,12 @@
  }
 
  .label {
-  font-family: 'Roboto Mono', monospace; /* Use monospaced font */
-  font-weight: 400;
+  font-family: 'ABC Diatype Mono', monospace; /* Use monospaced font */
+  font-weight: 600;
   font-size: 0.8em;
   text-transform: uppercase;
   margin-bottom: 10px;
-  margin-top: 50px;
+  margin-top: 40px;
   position: relative; /* Position relative for the tooltip */
   cursor: pointer; /* Pointer cursor on hover */
 
@@ -105,9 +105,9 @@
 
  .img-options span {
    display: block;
-   font-family: 'Roboto Mono', monospace; /* Use monospaced font */
+   font-family: 'ABC Diatype Mono', monospace; /* Use monospaced font */
+   font-weight: 600;
    font-size: var(--font-size-xs); /* Adjust font size */
-   margin-top: 5px;
  }
 
 

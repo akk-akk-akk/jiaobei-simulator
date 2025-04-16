@@ -72,7 +72,7 @@ function drawImages() {
 
     // Text
     ctx.fillStyle = "white";
-    ctx.font = "16px monospace";
+    ctx.font = "16px ABC Diatype Mono";
     ctx.textAlign = "left"; // Align text to the left
     ctx.fillText("r = " + r.toFixed(2), x + 2, y - 5); // Add padding of 5px
     ctx.fillText("Image: " + imgLabels[imageAbstractionLevel], x + 5, y + h + 15); // Add padding of 5px
@@ -113,7 +113,7 @@ function drawImages() {
 
   // Draw the label text
   ctx.fillStyle = "white";
-  ctx.font = "16px monospace";
+  ctx.font = "16px ABC Diatype Mono";
   ctx.textAlign = "left"; // Align text to the left
   ctx.fillText(labelText, labelX + 5, labelY + 7.5); // Add padding of 5px
 }
