@@ -21,6 +21,7 @@ let probabilityValue = 0.5;
 let imageAbstractionLevel = 0;
 let textAbstractionLevel = 0;
 let pictureList = [];
+let scaleFactor = 1.2; // Add scaleFactor variable
 
 function loadImages(baseIndex, callback) {
   let loaded = 0;
@@ -53,29 +54,35 @@ function drawImages() {
     if (chosen === 0) count1++;
     else count2++;
 
-    const w = 250;
-    const h = (image.height / image.width) * w;
-    const x = Math.random() * (canvas.width / dpr - w - 150) + 50;
-    const y = Math.random() * (canvas.height / dpr - 400) + 150;
+    const w = 250 * scaleFactor; // Scale the width
+    const h = (image.height / image.width) * w; // Maintain aspect ratio
+
+    // Calculate random positions
+    let x = Math.random() * (canvas.width / dpr - w - 50 * scaleFactor) + 25 * scaleFactor;
+    let y = Math.random() * (canvas.height / dpr - h - 50 * scaleFactor) + 25 * scaleFactor;
+
+    // Clamp positions to ensure they stay within the canvas
+    x = Math.max(0, Math.min(x, canvas.width / dpr - w));
+    y = Math.max(0, Math.min(y, canvas.height / dpr - h));
 
     ctx.drawImage(image, x, y, w, h);
 
     // Blue rectangle border
     ctx.strokeStyle = "blue";
-    ctx.lineWidth = 2;
+    ctx.lineWidth = 2 * scaleFactor; // Scale the border thickness
     ctx.strokeRect(x, y, w, h);
 
     // Blue background for r probability text
     ctx.fillStyle = "blue";
-    ctx.fillRect(x - 1, y - 20, 125, 20); // Background for "r = ..."
-    ctx.fillRect(x - 1, y + h, 200, 20); // Background for "Chosen: Image ..."
+    ctx.fillRect(x - 1, y - 20 * scaleFactor, 125 * scaleFactor, 20 * scaleFactor); // Background for "r = ..."
+    ctx.fillRect(x - 1, y + h, 200 * scaleFactor, 20 * scaleFactor); // Background for "Chosen: Image ..."
 
     // Text
     ctx.fillStyle = "white";
-    ctx.font = "16px ABC Diatype Mono";
+    ctx.font = `${16 * scaleFactor}px ABC Diatype Mono`; // Scale the font size
     ctx.textAlign = "left"; // Align text to the left
-    ctx.fillText("r = " + r.toFixed(2), x + 2, y - 5); // Add padding of 5px
-    ctx.fillText("Image: " + imgLabels[imageAbstractionLevel], x + 5, y + h + 15); // Add padding of 5px
+    ctx.fillText("r = " + r.toFixed(2), x + 2 * scaleFactor, y - 5 * scaleFactor); // Add padding of 5px
+    ctx.fillText("Image: " + imgLabels[imageAbstractionLevel], x + 5 * scaleFactor, y + h + 15 * scaleFactor); // Add padding of 5px
   }
 
   let msg;
@@ -84,38 +91,38 @@ function drawImages() {
   else msg = messages[textAbstractionLevel][2];
 
   // Measure the width of the main text
-  ctx.font = "28px myfont";
-  const textWidth = ctx.measureText(msg).width + 50;
-  const textHeight = 50; // Fixed height for the rectangle
-  const textX = (canvas.width / (2 * dpr)) - (textWidth / 2); // Center the rectangle
-  const textY = 60; // Position at the top
+  ctx.font = `${28 * scaleFactor}px myfont`; // Scale the font size
+  const textWidth = ctx.measureText(msg).width + 50 * scaleFactor;
+  const textHeight = 50 * scaleFactor; // Fixed height for the rectangle
+  const textX = Math.max(0, Math.min((canvas.width / (2 * dpr)) - (textWidth / 2), canvas.width / dpr - textWidth)); // Clamp the x position
+  const textY = 60 * scaleFactor; // Position at the top
 
   // Blue rectangle border for the main text
   ctx.strokeStyle = "blue";
-  ctx.lineWidth = 2;
-  ctx.strokeRect(textX, textY - 2.5, textWidth, textHeight);
+  ctx.lineWidth = 2 * scaleFactor; // Scale the border thickness
+  ctx.strokeRect(textX, textY - 2.5 * scaleFactor, textWidth, textHeight);
 
   // Draw the main text
   ctx.fillStyle = "black";
   ctx.textAlign = "center";
-  ctx.fillText(msg, canvas.width / (2 * dpr), textY + 30);
+  ctx.fillText(msg, canvas.width / (2 * dpr), textY + 30 * scaleFactor);
 
   // Measure the width of the label text
   const labels = ["Divine", "Ambiguous", "Secular"];
   const labelText = "Language: " + labels[textAbstractionLevel];
-  const labelWidth = ctx.measureText(labelText).width - 75; // Add padding for the rectangle
-  const labelX = textX; // Align the label rectangle with the main text rectangle
-  const labelY = textY + textHeight + 5;
+  const labelWidth = ctx.measureText(labelText).width - 75 * scaleFactor; // Add padding for the rectangle
+  const labelX = Math.max(0, Math.min(textX, canvas.width / dpr - labelWidth)); // Clamp the x position
+  const labelY = textY + textHeight + 5 * scaleFactor;
 
   // Blue rectangle border for the label
   ctx.fillStyle = "blue";
-  ctx.fillRect(labelX - 1, labelY - 7.5, labelWidth, 20);
+  ctx.fillRect(labelX - 1, labelY - 7.5 * scaleFactor, labelWidth, 20 * scaleFactor);
 
   // Draw the label text
   ctx.fillStyle = "white";
-  ctx.font = "16px ABC Diatype Mono";
+  ctx.font = `${16 * scaleFactor}px ABC Diatype Mono`; // Scale the font size
   ctx.textAlign = "left"; // Align text to the left
-  ctx.fillText(labelText, labelX + 5, labelY + 7.5); // Add padding of 5px
+  ctx.fillText(labelText, labelX + 5 * scaleFactor, labelY + 7.5 * scaleFactor); // Add padding of 5px
 }
 
 probSlider.addEventListener("input", () => {
