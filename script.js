@@ -193,25 +193,25 @@ canvas.addEventListener("click", () => {
 
 
 
-// POP UP BOX
+// // POP UP BOX
 
-// Show the pop-up when the page loads
-window.addEventListener("load", () => {
-  const popup = document.getElementById("popup");
-  const popupClose = document.getElementById("popupClose");
+// // Show the pop-up when the page loads
+// window.addEventListener("load", () => {
+//   const popup = document.getElementById("popup");
+//   const popupClose = document.getElementById("popupClose");
 
-  // Show the pop-up
-  popup.classList.add("show");
+//   // Show the pop-up
+//   popup.classList.add("show");
 
-  // Close the pop-up when the close button is clicked
-  popupClose.addEventListener("click", () => {
-    popup.classList.remove("show");
-  });
+//   // Close the pop-up when the close button is clicked
+//   popupClose.addEventListener("click", () => {
+//     popup.classList.remove("show");
+//   });
 
-  // Optional: Close the pop-up when clicking outside the content
-  popup.addEventListener("click", (e) => {
-    if (e.target === popup) {
-      popup.classList.remove("show");
-    }
-  });
-});
+//   // Optional: Close the pop-up when clicking outside the content
+//   popup.addEventListener("click", (e) => {
+//     if (e.target === popup) {
+//       popup.classList.remove("show");
+//     }
+//   });
+// });
