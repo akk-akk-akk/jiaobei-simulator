@@ -125,8 +125,6 @@ function drawImages() {
   ctx.fillText(labelText, labelX + 5 * scaleFactor, labelY + 7.5 * scaleFactor); // Add padding of 5px
 }
 
-
-
 probSlider.addEventListener("input", () => {
   probabilityValue = parseFloat(probSlider.value);
   probLabel.textContent = `1. Probability Threshold: ${Math.round(probabilityValue * 100)}%`;
@@ -187,3 +185,34 @@ createOptions("textOptions", textOptions, (i) => {
 
 loadImages(1, drawImages);
 
+// Add an event listener to the canvas for the click event
+canvas.addEventListener("click", () => {
+  drawImages(); // Regenerate the images when the canvas is clicked
+});
+
+document.querySelectorAll(".touch-icon").forEach((icon) => {
+  icon.addEventListener("click", (event) => {
+    event.stopPropagation(); // Prevent the event from bubbling up to other elements
+
+    const tooltipText = icon.getAttribute("data-tooltip");
+
+    // Create the tooltip pop-up
+    const tooltipPopup = document.createElement("div");
+    tooltipPopup.classList.add("tooltip-popup");
+    tooltipPopup.innerHTML = `
+      <span class="close-btn">&times;</span>
+      <p>${tooltipText}</p>
+    `;
+
+    // Append the tooltip to the body
+    document.body.appendChild(tooltipPopup);
+
+    // Show the tooltip
+    tooltipPopup.classList.add("show");
+
+    // Add event listener to close the tooltip
+    tooltipPopup.querySelector(".close-btn").addEventListener("click", () => {
+      tooltipPopup.remove();
+    });
+  });
+});
