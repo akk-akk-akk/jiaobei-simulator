@@ -125,6 +125,8 @@ function drawImages() {
   ctx.fillText(labelText, labelX + 5 * scaleFactor, labelY + 7.5 * scaleFactor); // Add padding of 5px
 }
 
+
+
 probSlider.addEventListener("input", () => {
   probabilityValue = parseFloat(probSlider.value);
   probLabel.textContent = `1. Probability Threshold: ${Math.round(probabilityValue * 100)}%`;
@@ -185,33 +187,3 @@ createOptions("textOptions", textOptions, (i) => {
 
 loadImages(1, drawImages);
 
-// Add an event listener to the canvas for the click event
-canvas.addEventListener("click", () => {
-  drawImages(); // Regenerate the images when the canvas is clicked
-});
-
-
-
-
-// // POP UP BOX
-
-// // Show the pop-up when the page loads
-// window.addEventListener("load", () => {
-//   const popup = document.getElementById("popup");
-//   const popupClose = document.getElementById("popupClose");
-
-//   // Show the pop-up
-//   popup.classList.add("show");
-
-//   // Close the pop-up when the close button is clicked
-//   popupClose.addEventListener("click", () => {
-//     popup.classList.remove("show");
-//   });
-
-//   // Optional: Close the pop-up when clicking outside the content
-//   popup.addEventListener("click", (e) => {
-//     if (e.target === popup) {
-//       popup.classList.remove("show");
-//     }
-//   });
-// });
