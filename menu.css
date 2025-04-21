@@ -72,10 +72,12 @@ header {
   margin: 4px auto;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
-  background: #222222;
+  color: white;
+  background: var(--color-1);
 }
 
 .main__nav-about {
+  color: white;
   display: none;
 }
 
@@ -101,11 +103,12 @@ header {
 }
 
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 820px) {
   .main__nav-bar {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+
   }
 
   .main__nav-bar ul {
@@ -131,10 +134,13 @@ header {
   ul.main__nav-list {
     padding-top: 20vh;
   }
+  
 
   .main__nav-list.active {
     left: 0;
+    background-color: var(--color-11);
   }
+  
 
   .main__nav-current,
   .main__nav-item {
@@ -142,7 +148,7 @@ header {
     padding-bottom: 1rem;
     margin-bottom: 3rem;
     width: 90%;
-    border-bottom: var(--color-11) 10px solid;
+    border-bottom: var(--color-1) 10px solid;
   }
 
   .main__nav-current,

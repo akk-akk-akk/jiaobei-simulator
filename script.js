@@ -1,3 +1,24 @@
+function initHamburgerMenu() {
+  /* initialise Hamburger-Menu */
+  const hamburger = document.querySelector(".main__nav-ham");
+  const navMenu = document.querySelector(".main__nav-list");
+  const title = document.querySelector(".main__nav-title");
+
+  hamburger.addEventListener("click", mobileMenu);
+
+  function mobileMenu() {
+    hamburger.classList.toggle("active");
+    navMenu.classList.toggle("active");
+  }
+
+  function closeMenu() {
+    hamburger.classList.remove("active");
+    navMenu.classList.remove("active");
+  }
+}
+
+initHamburgerMenu();
+
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
@@ -23,6 +44,8 @@ let textAbstractionLevel = 0;
 let pictureList = [];
 let scaleFactor = 1.2; // Add scaleFactor variable
 
+
+
 function loadImages(baseIndex, callback) {
   let loaded = 0;
   pictureList = [new Image(), new Image()];
@@ -35,6 +58,7 @@ function loadImages(baseIndex, callback) {
   }
 }
 
+
 function drawImages() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -45,6 +69,9 @@ function drawImages() {
     ["Signs point to yes.", "My sources say no.", "Concentrate and try again."],
     ["Yes.", "No.", "Maybe."]
   ];
+
+  // Define the minimum y-coordinate to ensure images are below the text
+  const minY = 150 * scaleFactor; // Adjust this value based on the height of the text
 
   for (let i = 0; i < 2; i++) {
     const r = Math.random();
@@ -59,11 +86,11 @@ function drawImages() {
 
     // Calculate random positions
     let x = Math.random() * (canvas.width / dpr - w - 50 * scaleFactor) + 25 * scaleFactor;
-    let y = Math.random() * (canvas.height / dpr - h - 50 * scaleFactor) + 25 * scaleFactor;
+    let y = Math.random() * (canvas.height / dpr - h - 50 * scaleFactor) + minY;
 
     // Clamp positions to ensure they stay within the canvas
     x = Math.max(0, Math.min(x, canvas.width / dpr - w));
-    y = Math.max(0, Math.min(y, canvas.height / dpr - h));
+    y = Math.max(minY, Math.min(y, canvas.height / dpr - h));
 
     ctx.drawImage(image, x, y, w, h);
 
@@ -124,6 +151,8 @@ function drawImages() {
   ctx.textAlign = "left"; // Align text to the left
   ctx.fillText(labelText, labelX + 5 * scaleFactor, labelY + 7.5 * scaleFactor); // Add padding of 5px
 }
+
+
 
 probSlider.addEventListener("input", () => {
   probabilityValue = parseFloat(probSlider.value);
@@ -216,3 +245,4 @@ document.querySelectorAll(".touch-icon").forEach((icon) => {
     });
   });
 });
+

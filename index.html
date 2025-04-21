@@ -12,64 +12,81 @@
   <nav class="main__nav-bar">
     <ul class="main__nav-title">
       <li><a href="https://magicinthemachine-cpj.netlify.app/">Magic in the Machine</a></li>
-      <li><a href="/">Experiments Microsite</a></li>
+      <li><a href="https://magicinthemachine-cpj.netlify.app/">Experiments Microsite</a></li>
     </ul>
+
+    <ul class="main__nav-list">
+      <li class="main__nav-item"><a href="https://magicinthemachine-experiment-1.netlify.app/">1. Jiao Bei 2.0</a></li>
+      <li class="main__nav-item"><a href="https://magicinthemachine-experiment-2.netlify.app/">2. Noise Oracle</a></li>
+      <li class="main__nav-item"><a href="https://meme-oracle.netlify.app/">3. Meme Oracle</a></li>
+      <li class="main__nav-about">
+        <p>
+          Let technology peer into your future...
+        </p>
+      </li>
+    </ul>
+    <div class="main__nav-ham">
+      <li class="main__nav-ham-bar"></li>
+      <li class="main__nav-ham-bar"></li>
+    </div>
   </nav>
 </header>
 
-<body>
+    <body>
 
-  <div id="popup" class="popup">
-    <div class="popup-content">
-      <span class="popup-close" id="popupClose">&times;</span>
-      <!-- <h1>
+      <div id="popup" class="popup">
+        <div class="popup-content">
+          <span class="popup-close" id="popupClose">&times;</span>
+          <!-- <h1>
         Experiment 1: Digital Simulation of the Jiaobei<br><br>
         Through the digital recreation of the traditional Chinese divinatory technique, this first experiment thus asks
         “What does it take to truly simulate the process of meaning-making through chance?” Taking a leaf from
         divinatory studies, explore the materiality of belief – medium (code), image, and text – in a digital setting.
       </h1> -->
-      <img src="intro-1.jpg" alt="intro-1">
-       
-    </div>
-  </div>
+          <img src="intro-1.jpg" alt="intro-1">
 
-  <section style="gap: var(--spacing-l)" class="row width__xl margin__auto margin__top-l">
-    <div style="min-width:300px;border:0;" class="column margin__m">
-      <div class="row">
-        <h1>Oracle 1:<br>
-          Jiao Bei 2.0</h1>
-      </div>
-      <div style="border:0; max-width:300px;" class="column">
-        <div class="row">
-          <p>Think of a question and click on the right to receive your answer. Jiao Bei 2.0 also offers new ways to suit your belief system.</p>
-        </div>
-        <div class="row padding__top-s">
-          <div class="label" id="probLabel"
-            data-tooltip="If algorithms are inherently deterministic, can randomness truly be digitally simulated? You decide. Help this algorithm help you make the decision that you know you want to make.">
-            1. Probability(r) Threshold: 50%</div>
-          <input type="range" id="probSlider" min="0" max="1" step="0.01" value="0.5" />
-        </div>
-        <div class="row">
-          <div class="label" id="imageLabel"
-            data-tooltip="Does abstraction of the image from the original object (the jiaobei) reduce its authority? We might sense a shift from divine authority to computational authority. The mechanics of decision-making remain the same, but how do these images evoke trust differently?">
-            2. Image Abstraction: Jiaobei</div>
-          <div class="img-options img__bw" id="imageOptions"></div>
-        </div>
-        <div class="row">
-          <div class="label" id="textLabel"
-            data-tooltip="The Gods are laughing → Concentrate and Try Again → Maybe. You might notice the abstraction of language also reduces material for interpretation.">
-            3. Text Abstraction: Divine</div>
-          <div class="img-options img__bw" id="textOptions"></div>
         </div>
       </div>
-    </div>
-    <div class="column margin__m">
-      <div class="row type__content">
-        <canvas id="canvas" width="500" height="500"></canvas>
-      </div>
-    </div>
-  </section>
 
-  <script src="script.js"></script>
+      <section style="gap: var(--spacing-l)" class="row width__xl margin__auto margin__top-l">
+        <div style="min-width:300px;border:0;" class="column margin__m">
+          <div class="row">
+            <h1>Oracle 1:<br>
+              Jiao Bei 2.0</h1>
+          </div>
+          <div style="border:0; max-width:300px;" class="column">
+            <div class="row">
+              <p>Think of a question and click on the right to receive your answer. Jiao Bei 2.0 also offers new ways to
+                suit your belief system.</p>
+            </div>
+            <div class="row padding__top-s">
+              <div class="label" id="probLabel"
+                data-tooltip="If algorithms are inherently deterministic, can randomness truly be digitally simulated? You decide. Help this algorithm help you make the decision that you know you want to make.">
+                1. Probability(r) Threshold: 50%</div>
+              <input type="range" id="probSlider" min="0" max="1" step="0.01" value="0.5" />
+            </div>
+            <div class="row">
+              <div class="label" id="imageLabel"
+                data-tooltip="Does abstraction of the image from the original object (the jiaobei) reduce its authority? We might sense a shift from divine authority to computational authority. The mechanics of decision-making remain the same, but how do these images evoke trust differently?">
+                2. Image Abstraction: Jiaobei</div>
+              <div class="img-options img__bw" id="imageOptions"></div>
+            </div>
+            <div class="row">
+              <div class="label" id="textLabel"
+                data-tooltip="The Gods are laughing → Concentrate and Try Again → Maybe. You might notice the abstraction of language also reduces material for interpretation.">
+                3. Text Abstraction: Divine</div>
+              <div class="img-options img__bw" id="textOptions"></div>
+            </div>
+          </div>
+        </div>
+        <div class="column margin__m">
+          <div class="row type__content">
+            <canvas id="canvas" width="500" height="500"></canvas>
+          </div>
+        </div>
+      </section>
 
-</body>
+      <script src="script.js"></script>
+
+    </body>
+</html>
